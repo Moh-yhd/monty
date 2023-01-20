@@ -10,7 +10,7 @@
  */
 void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 {
-	instruction_t table[] = {{"pop", pop}, {"pall", pall}};
+	instruction_t table[] = {{"pop", pop}, {"pall", pall}, {"pint", pint}};
 	char *token_copy = NULL, *token2 = NULL, *copy2 = NULL;
 	size_t i;
 

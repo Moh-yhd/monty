@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 #define MAX_LINE_LENGTH 1024
-
 /**
  * main - main function of the monty program
  * @argc: is the number of arguments passed to the program
@@ -14,24 +13,24 @@
  */
 int main(int argc, char *argv[])
 {
-	FILE *fp;
 	int line_number = 0;
 	char *token;
 	char instructions[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;
+	FILE *file;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
+	file = fopen(argv[1], "r");
+	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (fgets(instructions, MAX_LINE_LENGTH, fp) != NULL)
+	while (fgets(instructions, MAX_LINE_LENGTH, file) != NULL)
 	{
 		line_number++;
 		token = strtok(instructions, "\n\t\r");
@@ -39,6 +38,6 @@ int main(int argc, char *argv[])
 			continue;
 		get_instruction(&stack, token, line_number);
 	}
-	fclose(fp);
+	fclose(file);
 	return (0);
 }
