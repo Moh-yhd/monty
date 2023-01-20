@@ -1,8 +1,9 @@
+  # what is love
 push 1
 push 2
-nop
 push 3
-pall
-swap
-add
+mul
+nop$
+push 3
+div
 pall

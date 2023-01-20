@@ -12,13 +12,13 @@
 void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 {
 	instruction_t table[] = {{"pop", pop}, {"pall", pall}, {"pint", pint}
-		, {"swap", swap}, {"add", add}, {"nop", nop}};
+		, {"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub}
+		, {"div", _div}, {"mul", mul}};
 	char *token_copy = NULL,  *copy2 = NULL, *token2 = NULL;
 	size_t i;
 
-	if (token == NULL || *token == '\0')
+	if (token == NULL || *token == '\0' || *token == '#')
 		return;
-
 	token_copy = malloc(sizeof(char) * (strlen(token) + 1));
 	strcpy(token_copy, token);
 	token2 = strtok(token_copy, " ");
