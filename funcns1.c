@@ -129,19 +129,29 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * free_stack - frees a double linked list
- * @stack: is a pointer to the head of the list
+ * swap - swaps the first two elements of a stack
+ * @stack: is pointer to the head of the stack
+ * @line_number: is the line number whre token is located
  *
  * Return: nothing
  */
-void free_stack(stack_t *stack)
-{
-	stack_t *temp;
 
-	while (stack)
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head;
+	int i;
+
+	head = *stack;
+	if (stack != NULL && head != NULL && head->next != NULL)
 	{
-		temp = stack;
-		stack = stack->next;
-		free(temp);
+		i = head->n;
+		head->n = head->next->n;
+		head->next->n = i;
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 }
+
