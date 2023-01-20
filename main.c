@@ -15,7 +15,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	int j, line_number = 0, flag = 0;
+	int line_number = 0;
 	char *token;
 	char instructions[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;

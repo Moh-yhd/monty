@@ -8,7 +8,7 @@
  *
  * Return: nothing
  */
-void push(stack_t **stack, char *token, unsigned int line_number)
+void push(stack_t **stack, char *token, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *temp, *head;
 	int data;
@@ -53,7 +53,7 @@ void push(stack_t **stack, char *token, unsigned int line_number)
  * Return: nothing
  */
 
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *temp, *head;
 
@@ -80,7 +80,7 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 
 
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *head;
 
@@ -93,5 +93,6 @@ void pall(stack_t **stack, unsigned int line_number)
 			head = head->next;
 		}
 	}
+
 }
 
