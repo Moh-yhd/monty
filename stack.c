@@ -8,7 +8,8 @@
  *
  * Return: nothing
  */
-void push(stack_t **stack, char *token, __attribute__((unused)) unsigned int line_number)
+void push(stack_t **stack, char *token, __attribute__((unused))
+		unsigned int line_number)
 {
 	stack_t *temp, *head;
 	int data;
