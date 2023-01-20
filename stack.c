@@ -20,6 +20,11 @@ void push(stack_t **stack, char *token, __attribute__((unused))
 	token2 = strtok(NULL, delim);
 
 	data = (int) strtol(token2, &endptr, 10);
+	if (*endptr != '\0')
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	head = *stack;
 
