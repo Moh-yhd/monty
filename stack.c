@@ -129,3 +129,20 @@ void pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	}
 }
 
+/**
+ * free_dlistint - frees a double linked list
+ * @head: is a pointer to the head of the list
+ *
+ * Return: nothing
+ */
+void free_stack(stack_t *stack)
+{
+	stack_t *temp;
+
+	while (stack)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
+}

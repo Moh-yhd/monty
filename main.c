@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
 	int line_number = 0;
-	char *token;
+	char *token = NULL;
 	char instructions[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;
 	FILE *file;
@@ -39,5 +39,6 @@ int main(int argc, char *argv[])
 		get_instruction(&stack, token, line_number);
 	}
 	fclose(file);
+	free_stack(stack);
 	return (0);
 }
