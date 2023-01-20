@@ -31,6 +31,19 @@ void add(stack_t **stack, unsigned int line_number)
 }
 
 /**
+ * nop- does nothing
+ * @stack: is pointer to the head of the stack
+ * @line_number: is the line number where token is located
+ *
+ * Return: nothing
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}
+
+/**
  * free_stack - frees a double linked list
  * @stack: is a pointer to the head of the list
  *
