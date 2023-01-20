@@ -10,9 +10,9 @@
  */
 void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 {
-	instruction_t table[] = {{"pop", pop}, {"pall", pall}};
+	instruction_t table[] = {{"pop", pop}, {"pall", pall}, {"pint", pint}};
 	char *token_copy = NULL, *token2 = NULL, *copy2 = NULL;
-	int i;
+	size_t i;
 
 	if (token != NULL)
 	{
@@ -56,7 +56,7 @@ void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 int is_line_space(char *line)
 {
 	char *token = NULL;
-	int i;
+	size_t i;
 	int flag = 0;
 
 	token = strtok(line, "$");
@@ -67,7 +67,8 @@ int is_line_space(char *line)
 	}
 	if (flag == 0)
 		return (1);
-	else if (flag == 1)
+	else
 		return (0);
+
 }
 
