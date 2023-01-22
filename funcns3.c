@@ -145,7 +145,7 @@ void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	stack_t *head, *bottom;
 
 	head = *stack;
-	if (head == NULL || head->next == NULL || stack == NULL)
+	if (head == NULL || head->next == NULL)
 		;
 	else
 	{
