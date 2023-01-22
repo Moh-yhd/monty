@@ -82,7 +82,6 @@ int is_line_space(char *_line)
  * @_line: is a pointer to a line
  *
  * Return: 1 if line is comment and 0 if it is not
- 
  */
 int is_line_comment(char *_line)
 {
