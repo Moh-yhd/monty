@@ -16,7 +16,7 @@ void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 	instruction_t table[] = {{"pop", pop}, {"pall", pall}, {"pint", pint}
 		, {"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub}
 		, {"div", _div}, {"mul", mul}, {"mod", mod}, {"pchar", pchar}
-		, {"pstr", pstr}};
+		, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr}};
 
 	if (token == NULL || *token == '\0' || *token == '#')
 		return;
