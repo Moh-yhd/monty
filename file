@@ -1,9 +1,0 @@
-  # what is love
-push 1
-push 2
-push 3
-mul
-nop$
-push 3
-div
-pall

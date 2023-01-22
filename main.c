@@ -17,20 +17,20 @@ int main(int argc, char *argv[])
 	char *token = NULL;
 	char instructions[MAX_LINE_LENGTH];
 	stack_t *stack = NULL;
-	FILE *file;
+	FILE *fp;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	if (file == NULL)
+	fp = fopen(argv[1], "r");
+	if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (fgets(instructions, MAX_LINE_LENGTH, file) != NULL)
+	while (fgets(instructions, MAX_LINE_LENGTH, fp) != NULL)
 	{
 		line_number++;
 		token = strtok(instructions, "\n\t\r");
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 			continue;
 		get_instruction(&stack, token, line_number);
 	}
-	fclose(file);
+	fclose(fp);
 	free_stack(stack);
 	return (0);
 }
