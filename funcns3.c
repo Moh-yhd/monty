@@ -157,12 +157,13 @@ void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	head = *stack;
 
-	bottom->next = head;
-	*stack = head->next;
-	head->next->prev = NULL;
-	head->next = NULL;
 	head->prev = bottom;
+	bottom->next = head;
+	bottom->prev->next = NULL;
+	bottom->prev = NULL;
+	*stack = bottom;
 	}
+
 }
 
 
