@@ -69,3 +69,29 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * pstr - prints the string representation of a stack
+ * @stack: is pointer to the head of the stack
+ * @line_number: is the line number where token is located
+ *
+ * Return: nothing
+ */
+void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *head;
+
+	head = *stack;
+	if (head != NULL && stack != NULL)
+	{
+		while (head != NULL)
+		{
+			if (head->n == 0 || !(head->n >= 0 && head->n <= 127))
+				break;
+			putchar(head->n);
+			head = head->next;
+		}
+	}
+	putchar('\n');
+
+}
