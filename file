@@ -1,4 +1,6 @@
    # this is another comment
 push 5
 push 6
+push 72
 pall
+pchar

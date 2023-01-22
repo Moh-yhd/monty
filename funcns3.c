@@ -36,3 +36,38 @@ void mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * pchar - prints the char value of the top of the stack
+ * top elements of a stack by the second most top element
+ * @stack: is pointer to the head of the stack
+ * @line_number: is the line number where token is located
+ *
+ * Return: nothing
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head;
+
+	head = *stack;
+
+	if (stack && head)
+	{
+		if (head->n >= 0 && head->n <= 127)
+		{
+			putchar(head->n);
+			putchar('\n');
+		}
+		else
+		{
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
+
+		
