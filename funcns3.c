@@ -110,7 +110,9 @@ void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	unsigned int i, count;
 
 	head = *stack;
-	if (head && stack)
+	if (head == NULL || stack == NULL)
+		;
+	else
 	{
 	count = 1;
 	while (head->next)
@@ -146,7 +148,9 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	int data;
 
 	head = *stack;
-	if (head && stack)
+	if (head == NULL || head->next == NULL || stack == NULL)
+		;
+	else
 	{
 	while (head->next)
 	{
@@ -157,6 +161,7 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	head = *stack;
 	data = head->n;
 	*stack = head->next;
+	(*stack)->prev = NULL;
 	new = malloc(sizeof(stack_t));
 	new->n = data;
 	new->next = NULL;
