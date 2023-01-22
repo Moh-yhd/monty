@@ -54,7 +54,7 @@ void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 
 /**
  * is_line_space - checks if a line is only space
- * @line: is a pointer to a line
+ * @_line: is a pointer to a line
  *
  * Return: 1 if line is only space 0 if not
  */
