@@ -17,7 +17,7 @@ void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 		, {"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub}
 		, {"div", _div}, {"mul", mul}, {"mod", mod}};
 
-	if (token == NULL || *token == '\0')
+	if (token == NULL || *token == '\0' || *token == '#')
 		return;
 	token_copy = malloc(sizeof(char) * (strlen(token) + 1));
 	strcpy(token_copy, token);
