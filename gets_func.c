@@ -17,7 +17,7 @@ void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 		, {"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub}
 		, {"div", _div}, {"mul", mul}, {"mod", mod}};
 
-	if (token == NULL || *token == '\0' || *token == '#')
+	if (token == NULL || *token == '\0')
 		return;
 	token_copy = malloc(sizeof(char) * (strlen(token) + 1));
 	strcpy(token_copy, token);
@@ -46,7 +46,7 @@ void get_instruction(stack_t **stack, char *token, unsigned int line_number)
 		return;
 	}
 	}
-	if (is_line_space(copy2) == 1)
+	if (is_line_space(copy2) == 1 || is_line_comment(copy2) == 1)
 		return;
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
 	exit(EXIT_FAILURE);
@@ -76,3 +76,22 @@ int is_line_space(char *_line)
 		return (0);
 
 }
+
+/**
+ * is_line_comment - checks if a line is comment or not;
+ * @_line: is a pointer to a line
+ *
+ * Return: 1 if line is comment and 0 if it is not
+ 
+ */
+int is_line_comment(char *_line)
+{
+	char *token = NULL;
+
+	token = strtok(_line, " ");
+	if (token[0] == '#')
+		return (1);
+	else
+		return (0);
+}
+
